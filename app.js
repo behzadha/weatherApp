@@ -21,6 +21,7 @@ locationService.getGeolocationDetails(locationName, (err,result)=>{
             {
                 console.log(JSON.stringify(weatherResult, undefined, 2));
             }
+            
         });
     }
 });

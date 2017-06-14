@@ -17,7 +17,20 @@ request({url:`https://api.darksky.net/forecast/e88cda2c0b1172dde5299989758119e0/
     }
 })
 };
-
+getWeatherInfoPromise = (lat,lng)=>{
+    return new Promise((resolve,reject)=>{
+        getWeatherInfo(lat,lng,(err,result)=>{
+            if(err){
+                reject(err);
+            }
+            else
+            {
+                resolve(result);
+            }
+        })
+    })
+}
 module.exports = {
-    getWeatherInfo
+    getWeatherInfo,
+    getWeatherInfoPromise
 }
