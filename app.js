@@ -4,9 +4,8 @@ var yargs = require('yargs');
 var locationService = require('./geolocation.js');
 var weatherService=require('./weather.js');
 
-var locationName = yargs.argv._[0];
-
-locationService.getGeolocationDetails(locationName, (err,result)=>{
+var locationName = encodeURIComponent(yargs.argv._[0]); 
+p.getGeolocationDetails(locationName, (err,result)=>{
     if(err){
         console.log(err);
     }
