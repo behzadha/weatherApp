@@ -2,7 +2,6 @@ var yargs = require('yargs');
 var axios = require('axios');
 
 
-var locationName = yargs.argv._[0];
 var locationName = encodeURIComponent(yargs.argv._[0]); 
 var geoUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${locationName}`;
 axios.get(geoUrl).then((response)=>{
