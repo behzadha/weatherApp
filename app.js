@@ -3,8 +3,16 @@ var yargs = require('yargs');
 
 var locationService = require('./geolocation.js');
 var weatherService=require('./weather.js');
+const argv = yargs.options({
+    a:{
+        demand:true,
+        alias:'address',
+        describe:'address to fetch the weather for',
+        string: true
+    }
+}).help().alias('help','h').argv;
 
-var locationName = encodeURIComponent(yargs.argv._[0]); 
+var locationName = encodeURIComponent(yargs.a); 
 p.getGeolocationDetails(locationName, (err,result)=>{
     if(err){
         console.log(err);
