@@ -1,4 +1,9 @@
-var request = require('request');
+
+var axios = require('axios');
+
+
+var url = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}`;
+axios.get()
 
 getGeolocationDetails = (location, callback)=>{
     if(location!=undefined){
