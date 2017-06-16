@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Location Service</title>
+           <style>
+      #map {
+        width: 100%;
+        height: 400px;
+        background-color: grey;
+      }
+    </style>
+    </head>
+    <body>
+        {{> header}}
+        <br/>
+
+        <div>
+            Current Temperture : {{temperature}}
+        </div>
+        <div>
+            Humidity : {{humidity}}
+        </div>
+        <div>
+            Wind Speed : {{windSpeed}}
+        </div>
+        <div>
+            Summary : {{summary}}
+        </div>
+<br>
+<script>
+var a = {{{locationDetails.latitude}}};
+var b ={{{locationDetails.longitude}}};
+         function initMap() {
+
+        var uluru = {lat: a, lng: b};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+      <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2awOiCzLBZobiPaV_mpxhoHxKw6kVwO4&callback=initMap">
+    </script>
+        <div id='map'> </div>
+        {{> footer}}
+    </body>
+</html>

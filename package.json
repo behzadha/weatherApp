@@ -1,0 +1,28 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "express": "^4.15.3",
+    "hbs": "^4.0.1",
+    "request": "^2.81.0",
+    "yargs": "^8.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start":"node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/behzadha/weatherApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/behzadha/weatherApp/issues"
+  },
+  "homepage": "https://github.com/behzadha/weatherApp#readme"
+}
