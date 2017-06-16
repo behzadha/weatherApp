@@ -1,16 +1,29 @@
-const yargs = require('yargs');
+const express = require('express');
+const app = express();
+
+app.use(express.static(__dirname+'/public'));
+
 const locationService = require('./locationService');
 
-var location = yargs.argv._[0];
-location = encodeURIComponent(location);
 
-locationService.getLocationInfo(location,(err,result)=>{
+
+app.get('/weather/:locationName',(req,res)=>{
+console.log(req.params.locationName);
+    locationService.getLocationInfo(req.params.locationName,(err,result)=>{
     if(err)
     {
         console.log(err);
     }
     else
     {
-     console.log(JSON.stringify(result,undefined,4));
+   res.send(JSON.stringify(result,undefined,4));
     }
 });
+});
+
+
+
+
+app.listen(3000,()=>{
+    console.log('Server is running on port 3000');
+})
